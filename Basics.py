@@ -40,6 +40,54 @@ fruits = ["apple", "banana", "mango"]
 # Accessing elements
 print(fruits[0]) 
 
+# Adding an element
+fruits.append("orange")
+print(fruits)  
+
+# Removing an element
+fruits.remove("banana")
+print(fruits)  
+
+# Iterating through a list
+for fruit in fruits:
+    print(fruit)
+
+# Tuple
+# Creating a tuple
+my_tuple = (1, 2, 3)
+print(my_tuple)  
+
+# Accessing elements in a tuple
+print(my_tuple[0])  
+print(my_tuple[2])  
+
+# Concatenating tuples
+tuple1 = (1, 2)
+tuple2 = (3, 4)
+combined = tuple1 + tuple2
+print(combined)  
+
+# Dictionary
+
+# Creating a dictionary
+person = {"name": "Ali", "age": 25}
+print(person) 
+
+# Adding a new key-value pair
+person["city"] = "Karachi"
+print(person)  
+
+# Accessing a value
+print(person["name"]) 
+
+
+
+
+
+
+
+
+
 
 
 
