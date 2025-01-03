@@ -1,5 +1,31 @@
+## **Chapter 4: Message Passing**
 
+Message passing enables communication between processes in parallel programs. It allows processes to exchange data explicitly through send and receive operations, making it essential for distributed computing.
 
+In this chapter, we will cover the following recipes:
+- Using the mpi4py Python module
+- Implementing point-to-point communication
+- Avoiding deadlock problems
+- Collective communication using a broadcast
+- Collective communication using the scatter function
+- Collective communication using the gather function
+
+### Requirements:
+ The installation procedure of mpi4py on a Windows machine is as follows:
+
+ pip install mpi4py
+ 
+ This implies that the notation used to run the mpi4py examples is as follows:
+
+ mpiexec -n x python mpi4py_script_name.py
+
+ The mpiexec command is the typical way to start parallel jobs: x is the total number of
+ processes to use, while mpi4py_script_name.py is the name of the script to be executed.
+
+### **Why Use Message Passing?**
+1. **Decoupling**: Processes operate independently and communicate only when necessary, enhancing modularity.
+2. **Scalability**: It scales easily across different machines, making it suitable for distributed systems.
+3. **Fault Tolerance**: Processes can handle failures gracefully, especially in distributed settings.
 
 
 # 1. Point-to-Point Communication
@@ -67,6 +93,29 @@ Demonstrates the `scatter` operation using the `mpi4py` library:
 
 ## Output
 ![Code Screenshot](outputs-ss/image4.png)
+
+## Explanation
+1. **Root Process (Rank 0)**:
+   - **Rank 0** initializes an array `array_to_share` with the values `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]`.
+   - The `comm.scatter` method is used to distribute the elements of this array to all processes in the communicator.
+
+2. **Other Processes (Ranks 1 to 9)**:
+   - Each process receives a specific element from the array, based on its rank. For example:
+     - **Rank 0** receives `1`.
+     - **Rank 1** receives `2`.
+     - **Rank 2** receives `3`.
+     - And so on until **Rank 9**, which receives `10`.
+   - Each process prints its rank and the value it received.
+
+
+# 4. Scatter Communication
+Demonstrates the `scatter` operation using the `mpi4py` library:  
+- The root process (rank 0) distributes different elements of an array to all other processes.  
+- Each process receives a specific element from the array.
+
+## Output
+![Code Screenshot](outputs-ss/image5.png)
+![Code Screenshot](outputs-ss/image6.png)
 
 ## Explanation
 1. **Root Process (Rank 0)**:
