@@ -2,7 +2,7 @@
 
 Message passing enables communication between processes in parallel programs. It allows processes to exchange data explicitly through send and receive operations, making it essential for distributed computing.
 
-In this chapter, we will cover the following recipes:
+In this chapter, we cover the following recipes:
 - Using the mpi4py Python module
 - Implementing point-to-point communication
 - Avoiding deadlock problems
