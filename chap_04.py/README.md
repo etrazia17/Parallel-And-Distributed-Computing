@@ -58,3 +58,25 @@ Demonstrates the concept of broadcasting using the `mpi4py` library:
 2. **Other Ranks**:
    - All other ranks (1, 2, 3, 4, 5, 6, 7, 8) receive the value `100` from **Rank 0** and print it.
    - The broadcast ensures that each process gets the same value, regardless of its rank.
+
+
+# 4. Scatter Communication
+Demonstrates the `scatter` operation using the `mpi4py` library:  
+- The root process (rank 0) distributes different elements of an array to all other processes.  
+- Each process receives a specific element from the array.
+
+## Output
+![Code Screenshot](outputs-ss/image4.png)
+
+## Explanation
+1. **Root Process (Rank 0)**:
+   - **Rank 0** initializes an array `array_to_share` with the values `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]`.
+   - The `comm.scatter` method is used to distribute the elements of this array to all processes in the communicator.
+
+2. **Other Processes (Ranks 1 to 9)**:
+   - Each process receives a specific element from the array, based on its rank. For example:
+     - **Rank 0** receives `1`.
+     - **Rank 1** receives `2`.
+     - **Rank 2** receives `3`.
+     - And so on until **Rank 9**, which receives `10`.
+   - Each process prints its rank and the value it received.
