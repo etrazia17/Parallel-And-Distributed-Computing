@@ -10,4 +10,5 @@ else:
     array_to_share = None
 
 recvbuf = comm.scatter(array_to_share, root=0)
+comm.Barrier()
 print("Process = %d, recvbuf = %d" % (rank, recvbuf))
